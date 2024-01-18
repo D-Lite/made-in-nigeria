@@ -66,7 +66,7 @@ const ProjectsPage = (props) => {
 
             <Box position="sticky" top="90" zIndex={1} display={{ base: 'flex', md: 'none' }}>
                 {isNormal ? (
-                    <AlphabetFilterNormal />
+                    <AlphabetFilterNormal selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} />
                 ) : isStuck && !isExpanded ? (
                     <AlphabetFilterStuck isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
                 ) : isExpanded ? (

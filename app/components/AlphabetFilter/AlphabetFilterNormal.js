@@ -1,5 +1,5 @@
 import { Button, Center, SimpleGrid } from '@chakra-ui/react';
-import React from 'react';
+import React, {useState} from 'react';
 
 const AlphabetFilter = ({selectedLetter, setSelectedLetter}) => {
   const alphabetsCharCodes = Array.from(Array(26)).map((element, index) => index + 65);
@@ -7,9 +7,12 @@ const AlphabetFilter = ({selectedLetter, setSelectedLetter}) => {
     String.fromCharCode(charCode)
   );
 
+  const [selected, setSelected] = useState(selectedLetter);
+
   const filterProjects = (letter) => {
     // filter function goes here
     setSelectedLetter(letter);
+    setSelected(letter);
   };
 
   return (
@@ -18,6 +21,7 @@ const AlphabetFilter = ({selectedLetter, setSelectedLetter}) => {
         <Center key={letter} borderLeft="1px solid #E2E3E3" padding="0rem 1rem">
           <Button
             background="none"
+            style={{ backgroundColor: letter === selectedLetter && '#f4f4f4' }}
             color="#B8BAB9"
             fontWeight="800"
             _hover={{ background: '#f4f4f4' }}
