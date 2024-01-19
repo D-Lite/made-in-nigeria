@@ -7,12 +7,13 @@ const AlphabetFilter = ({selectedLetter, setSelectedLetter}) => {
     String.fromCharCode(charCode)
   );
 
-  const [selected, setSelected] = useState(selectedLetter);
 
   const filterProjects = (letter) => {
-    // filter function goes here
-    setSelectedLetter(letter);
-    setSelected(letter);
+    if(letter === selectedLetter) {
+      setSelectedLetter('')
+    } else {
+      setSelectedLetter(letter);
+    }
   };
 
   return (
